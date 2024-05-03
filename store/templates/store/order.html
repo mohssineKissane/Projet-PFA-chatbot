@@ -1,0 +1,87 @@
+{% extends 'store/layouts/main.html' %}
+
+{% block content %}
+
+    <style>
+        /* Basic styles for the table */
+        .orders-table {
+            width: 70%; /* Set width to 100% to make it wider */
+            border-collapse: collapse;
+            margin-top: 10px;
+            margin-bottom: 10px; /* Add margin-bottom for spacing between orders */
+            margin-left: 200px;
+        }
+
+        .orders-table th,
+        .orders-table td {
+            border: 1px solid #ddd;
+            padding: 1px;
+            text-align: left;
+        }
+
+        .orders-table th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        /* Styles for table body */
+        .orders-table tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Styles for product image */
+        .product-img {
+            max-width: 40px;
+            max-height: 40px;
+        }
+
+        /* Centering content and setting text color */
+        body {
+            text-align: center;
+            color: black;
+        }
+
+        /* Ensure each order is displayed on a new line */
+        .order-container {
+            display: block;
+            margin-bottom: 20px; /* Add margin bottom for spacing between orders */
+        }
+    </style>
+
+    
+    {% if orders %}
+        {% for order in orders %}
+            <div class="order-container">
+                <h3>Order ID: {{ order.id }}</h3>
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order_item in order.orderitem_set.all %}
+                            <tr>
+                                <td>
+                                    <img src="{{ order_item.product.product_image.url }}" alt="{{ order_item.product.name }}" class="product-img">
+                                    {{ order_item.product.name }}
+                                </td>
+                                <td>{{ order_item.quantity }}</td>
+                                <td>${{ order_item.price }}</td>
+                            </tr>
+                          
+                        {% endfor %}
+                          
+                    </tbody>
+                </table>
+                <h5>Total Price: ${{ order.total_price }}</h5>
+            </div>
+        {% endfor %}
+       
+    {% else %}
+        <p>No orders found.</p>
+    {% endif %}
+
+{% endblock content %}

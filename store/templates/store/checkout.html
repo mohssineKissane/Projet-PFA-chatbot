@@ -1,0 +1,127 @@
+{% extends 'store/layouts/main.html' %}
+
+{% block content %}
+
+<style>
+  .custom-bg {
+    background-color: #1b116a;
+  }
+</style>
+<div class="py-3 custom-bg">
+  <div class="container">
+    <a class="text-white me-2" href="{% url 'cart' %}">cart /</a>
+    <a class="text-white me-2" href="{% url 'checkout' %}">checkout</a>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <form action="{% url 'placeorder'%}" method="POST">
+    {% csrf_token %}
+  <div class="row">
+    <div class="col-md-7">
+      <div class="card shadow">
+        <div class="card-body">
+          <h6>Basic Details</h6>
+          <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <label>First Name</label>
+              <input type="text" required class="form-control" name="fname" placeholder="Enter first name">
+            </div>
+
+            <div class="col-md-6">
+              <label>Last Name</label> <!-- Corrected the label tag -->
+              <input type="text" required class="form-control" name="Lname" placeholder="Enter last name"> <!-- Changed the placeholder text -->
+            </div>
+            
+            
+            <div class="col-md-6">
+              <label>Email</label> <!-- Corrected the label tag -->
+              <input type="email" required class="form-control" name="email" placeholder="Enter email"> <!-- Changed the placeholder text -->
+            </div>
+
+            
+            <div class="col-md-6">
+              <label>Phone</label> <!-- Corrected the label tag -->
+              <input type="text" required class="form-control" name="phone" placeholder="Enter phone"> <!-- Changed the placeholder text -->
+            </div>
+
+             <br>
+            <div class="col-md-12">
+              <label>Address</label> <!-- Corrected the label tag -->
+              <input type="textarea" required class="form-control" name="address" placeholder="Enter your adress"> <!-- Changed the placeholder text -->
+            </div>
+
+             
+            <div class="col-md-6">
+              <label>City</label> <!-- Corrected the label tag -->
+              <input type="text" required class="form-control" name="city" placeholder="Enter city"> <!-- Changed the placeholder text -->
+            </div>
+
+            
+            <div class="col-md-6">
+              <label>State</label> <!-- Corrected the label tag -->
+              <input type="text" required class="form-control" name="state"  placeholder="Enter state"> <!-- Changed the placeholder text -->
+            </div>
+
+            <div class="col-md-6">
+              <label>Country</label> <!-- Corrected the label tag -->
+              <input type="text" required class="form-control" name="country" placeholder="Enter country"> <!-- Changed the placeholder text -->
+            </div>
+
+            <div class="col-md-6">
+              <label>Postal code</label> <!-- Corrected the label tag -->
+              <input type="text" required class="form-control" name="postalcode" placeholder="Enter postal code"> <!-- Changed the placeholder text -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+           <div class="col-md-5">
+          <div class="card shadow">
+          <div class="card-body">
+          <h6>Order Summary</h6>
+          <hr>
+            {% if cartitems %}
+          <table class= "table table-stripped  table-bordred ">
+          <thead>
+          <tr>
+          <th> product</th>
+          <th> Qty</th>
+          <th> Price</th>
+          </tr>
+          </thead>
+           <tbody>
+                    {% for item in cartitems %}
+                        <tr>
+                            <td>
+                                <img src="{{item.product.product_image.url}}" height="50px" class="me-2" />
+                                {{item.product.name}}
+                            </td>
+                            <td>{{item.product_qty }}</td>
+                            <td>{{item.product.selling_price }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        <h6 class="fw-bold"> Total
+        <span class="float-end"> $ {{ total_price }} </span>
+        </h6>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-success w-100">  Place Order </button>
+        </div> 
+        
+
+        {% else %}
+            <h4>Your cart is empty</h4>
+        {% endif %}
+      </div>
+    </div>
+      </div>
+      </div>
+  </form>
+</div>
+
+
+{% endblock content %}

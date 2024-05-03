@@ -1,0 +1,74 @@
+<style>
+  .navbar-nav .nav-link,
+  .navbar-brand {
+    color: white !important;
+  }
+  .navbar-brand {
+    font-weight: bold;
+  }
+  .navbar-nav .nav-link:hover {
+    color: #00bbf0 !important;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg" style="background-color: #1b116a">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">TechConnect</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'categories' %}">Categories</a>
+        </li>
+
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'cart' %}"
+            >Cart</a
+          >
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ request.user }}
+          </a>
+          <ul class="dropdown-menu" style="margin-right: 20px;">
+              <li><a class="dropdown-item" href="{% url 'listorder' %}" style="color: black;">My orders</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="{% url 'logoutpage' %}" style="color: black;">Logout</a></li>
+          </ul>
+
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'loginpage' %}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Register</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

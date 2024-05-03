@@ -1,0 +1,215 @@
+{% extends 'store/layouts/main.html' %} {% block content %} {% load static %}
+<body>
+  <div class="hero_area">
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{% static 'images/hero-bg.png' %}" alt="" />
+      </div>
+    </div>
+
+    <!-- slider section -->
+    <section class="slider_section">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="img-box">
+                        <img src="{% static 'images/slider-img.png' %}" alt="" />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="detail-box">
+                        <h1>
+                         Tech <br>Connect
+                        </h1>
+                        <p>
+                          Welcome to TechConnect, your go-to destination for laptops
+                          and smartphones. Our website features an intuitive chatbot
+                          ready to assist you in finding the ideal device. With a
+                          diverse selection of products, personalized
+                          recommendations are just a message away.
+                        </p>
+                        <div class="btn-box">
+                          <a href="{% url 'categories' %}" class="btn1">
+                            Shop now
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+          
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <h1>Laptops <br /></h1>
+                    <p>
+                      At TechConnect, we pride ourselves on offering a diverse
+                      range of laptops designed to cater to every need and
+                      preference. Whether you're a professional in need of
+                      powerful performance, a student seeking portability, or a
+                      gamer craving high-speed graphics, we have the perfect
+                      laptop for you. Our selection includes top brands known
+                      for their reliability, ensuring that you receive a quality
+                      device that meets your expectations.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'categories' %}" class="btn1">
+                        Shop now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/laptop-img.png' %}" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <h1>smartPhone <br /></h1>
+                    <p>
+                      Discover the latest in smartphone technology at TechConnect,
+                      where innovation meets affordability. From sleek designs
+                      to cutting-edge features, our smartphones are curated to
+                      enhance your digital experience. Whether you're looking
+                      for a flagship model with advanced cameras or a
+                      budget-friendly option without compromising quality, we
+                      have the ideal smartphone to suit your lifestyle and
+                      budget.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'categories' %}" class="btn1">
+                        Shop now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/iphone-img.png' %}" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li
+            data-target="#customCarousel1"
+            data-slide-to="0"
+            class="active"
+          ></li>
+          <li data-target="#customCarousel1" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+        </ol>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>About <span>Us</span></h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{% static 'images/about-imge.png' %}" alt="" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h3></h3>
+            <p>
+              Welcome to TechConnect, where technology meets convenience. Founded
+              with a passion for innovation, TechConnect is your premier online
+              destination for the latest in laptops and smartphones. Our mission
+              is simple: to provide customers with a seamless shopping
+              experience, backed by expert guidance and personalized
+              recommendations. With a diverse selection of top-quality products
+              and a user-friendly interface, we strive to make every purchase a
+              satisfying journey. Experience the future of online shopping with
+              TechConnect today.
+            </p>
+            <a href=""> Read More </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>Address</h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span> Marrakech </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span> Call 05 24 55 66 77 88 </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span> TechConnect@contact.com </span>
+              </a>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>Info</h4>
+            <p>TechConnect Is created in 2024</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 info_col">
+          <h4>Subscribe</h4>
+          <form action="#">
+            <input type="text" placeholder="Enter email" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="footer_section">
+    <div class="container">
+      <p>&copy; <span id="displayYear"></span> All Rights are Reserved</p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  {% endblock content %}
+</body>
