@@ -6,7 +6,7 @@ import google.generativeai as genai
 from google.generativeai.types.generation_types import StopCandidateException
 # Create your views here.
 
-genai.configure(api_key="AIzaSyAvTlHoWMS3Cb3eI6_AhXDir460H9mQe0c")
+genai.configure(api_key="Enter your API kEY gimini")
 
 
 def ask_question(request):
