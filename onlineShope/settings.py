@@ -55,10 +55,10 @@ WSGI_APPLICATION = 'onlineShope.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'store_db',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': 'ITisME#23'
+        'NAME': '',
+        'HOST': '',
+        'USER': '',
+        'PASSWORD': ''
     }
 }
 
