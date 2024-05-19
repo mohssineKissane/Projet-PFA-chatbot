@@ -58,7 +58,7 @@ DATABASES = {
         'NAME': 'store_db',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': ''
+        'PASSWORD': 'ITisME#23'
     }
 }
 

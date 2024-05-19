@@ -17,7 +17,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>{{category_name.name}}</h1>
+      <h1>{{ category_name.name }}</h1>
       <hr />
       <div class="row">
         {% for item in products %}
@@ -30,7 +30,6 @@
               alt="..."
             />
             <div class="card-body d-flex flex-column justify-content-between">
-              <!-- Added flex utilities -->
               <h5 class="card-title">{{ item.name }}</h5>
               <hr />
               <div>
@@ -41,7 +40,6 @@
               </div>
               <div>New Price: {{ item.selling_price }}</div>
               <div class="text-center mt-auto">
-                <!-- Added text-center class and mt-auto for bottom margin -->
                 <a
                   href="{% url 'productview' item.category.slug item.slug %}"
                   class="btn btn-primary"
@@ -51,7 +49,10 @@
             </div>
           </div>
         </div>
-        {% endfor %}
+        {% if forloop.counter|divisibleby:4 and not forloop.last %}
+        <div class="col-md-12 my-4"></div>
+        <!-- Add space after every 4th product -->
+        {% endif %} {% endfor %}
       </div>
     </div>
   </div>

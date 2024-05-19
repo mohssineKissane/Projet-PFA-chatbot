@@ -64,17 +64,10 @@ $(document).ready(function () {
                 'product_qty': product_qty,
                 csrfmiddlewaretoken: token
             },
-            beforeSend: function (xhr, settings) {
-                xhr.setRequestHeader("X-CSRFToken", token);
-            },
+
             success: function (response) {
-                console.log(response);
-                alertify.success(response.status);
             },
-            error: function (xhr, errmsg, err) {
-                console.log(xhr.status + ": " + xhr.responseText); // Log the error message
-                alertify.error("An error occurred while adding the product to the cart.");
-            }
+
         });
     });
     // delete cart item
@@ -91,7 +84,7 @@ $(document).ready(function () {
 
             success: function (response) {
                 alertify.success(response.status);
-                $('').load(location.href + " .cartdata")
+                $('.cartdata').load(location.href + " .cartdata");
             },
 
         });
